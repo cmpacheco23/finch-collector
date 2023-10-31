@@ -33,5 +33,37 @@
     </div>
   </div>
 </section>
+<div class="walks-toy-container">
+  <section class="walks">
+    <div class="subsection-title">
+      <h2>Walks</h2>
+      <img 
+        src="{% static 'images/cat-cone.svg' %}" 
+        alt="An ice cream cone cat"
+      />
+      <img 
+        src="{% static 'images/cat-onigiri.svg' %}"
+        alt="A cat as onigiri"
+      />
+      <img 
+        src="{% static 'images/kitty-kabob.svg' %}" 
+        alt="A kabob of kittens"
+      />
+    </div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Timing</th></tr>
+      </thead>
+      <tbody>
+        {% for walk in dog.walk_set.all %}
+          <tr>
+            <td>{{walk.date}}</td>
+            <td>{{walk.get_timing_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock %}
