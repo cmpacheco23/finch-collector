@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Dog
 # Add the following import
@@ -21,3 +21,11 @@ def dog_detail(request, dog_id):
 class DogCreate(CreateView):
   model = Dog
   fields = ['name', 'breed', 'description', 'pawrent', 'age']
+  
+class DogUpdate(UpdateView):
+  model = Dog
+  fields = ['breed', 'description', 'pawrent', 'age']
+
+class DogDelete(DeleteView):
+  model = Dog
+  success_url= '/dogs/'

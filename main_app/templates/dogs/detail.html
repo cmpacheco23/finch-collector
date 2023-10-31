@@ -25,7 +25,12 @@
     {% else %}
       <p>A {{ dog.breed }} kitten.</p>
     {% endif %}
+    <p><small>Pawrent(s): {{ dog.pawrent }}</small></p>
     <p><small>{{ dog.description }}</small></p>
+    <div class="dog-actions">
+      <a href="{% url 'dog-update' dog.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'dog-delete' dog.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
