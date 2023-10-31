@@ -68,19 +68,25 @@
       <button type="submit" class="btn submit">Add Walk</button>
     </form>
     <h3>Previous Walks</h3>
-    <table>
-      <thead>
-        <tr><th>Date</th><th>Timing</th></tr>
-      </thead>
-      <tbody>
-        {% for walk in dog.walk_set.all %}
+    {% if dog.walk_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Timing</th></tr>
+        </thead>
+        <tbody>
+          {% for walk in dog.walk_set.all %}
           <tr>
             <td>{{walk.date}}</td>
             <td>{{walk.get_timing_display}}</td>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="subsection-content">
+        <p>{{dog.name}} has never been walked 😔 </p>
+      </div>
+    {% endif %}
   </section>
 </div>
 
