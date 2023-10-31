@@ -63,10 +63,20 @@
     </div>
     <h3>Add a Walk</h3>
     <form action="{%url 'add-walk' dog.id %}" method="post" class="subsection-content" autocomplete="off">
+      {% if dog.walked_for_today %}
+        <p class="walked">
+          {{dog.name}} has gotten all their steps in for today!
+        </p>
+      {% else %}
+        <p class="unwalked">
+          {{dog.name}} might need a walk!
+        </p>
+      {% endif %}
       {% csrf_token %}
       {{ walk_form.as_p }}
       <button type="submit" class="btn submit">Add Walk</button>
     </form>
+    
     <h3>Previous Walks</h3>
     {% if dog.walk_set.all.count %}
       <table>

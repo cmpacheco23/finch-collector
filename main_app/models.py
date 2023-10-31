@@ -21,6 +21,9 @@ class Dog(models.Model):
   def get_absolute_url(self):
       return reverse("dog-detail", kwargs={"dog_id": self.id})
   
+  def walked_for_today(self):
+    return self.walk_set.filter(date=date.today()).count() >= len(TIMING)
+
 class Walk(models.Model):
   date = models.DateField('Walk Date')
   timing = models.CharField(max_length=1, choices=TIMING, default=TIMING[0][0])
