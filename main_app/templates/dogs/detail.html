@@ -38,18 +38,25 @@
     <div class="subsection-title">
       <h2>Walks</h2>
       <img 
-        src="{% static 'images/cat-cone.svg' %}" 
-        alt="An ice cream cone cat"
+      src="{% static 'images/cat-cone.svg' %}" 
+      alt="An ice cream cone cat"
       />
       <img 
-        src="{% static 'images/cat-onigiri.svg' %}"
-        alt="A cat as onigiri"
+      src="{% static 'images/cat-onigiri.svg' %}"
+      alt="A cat as onigiri"
       />
       <img 
-        src="{% static 'images/kitty-kabob.svg' %}" 
-        alt="A kabob of kittens"
+      src="{% static 'images/kitty-kabob.svg' %}" 
+      alt="A kabob of kittens"
       />
     </div>
+    <h3>Add a Walk</h3>
+    <form method="post" class="subsection-content" autocomplete="off">
+      {% csrf_token %}
+      {{ walk_form.as_p }}
+      <button type="submit" class="btn submit">Add Walk</button>
+    </form>
+    <h3>Previous Walks</h3>
     <table>
       <thead>
         <tr><th>Date</th><th>Timing</th></tr>

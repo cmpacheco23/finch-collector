@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Dog
+from .forms import WalkForm
 # Add the following import
 
 # Define the home view
@@ -16,7 +17,8 @@ def dog_index(request):
 
 def dog_detail(request, dog_id):
   dog = Dog.objects.get(id=dog_id)
-  return render(request, 'dogs/detail.html', {'dog': dog})
+  walk_form = WalkForm()
+  return render(request, 'dogs/detail.html', {'dog': dog, 'walk_form': walk_form})
 
 class DogCreate(CreateView):
   model = Dog
