@@ -62,7 +62,7 @@
       />
     </div>
     <h3>Add a Walk</h3>
-    <form method="post" class="subsection-content" autocomplete="off">
+    <form action="{%url 'add-walk' dog.id %}" method="post" class="subsection-content" autocomplete="off">
       {% csrf_token %}
       {{ walk_form.as_p }}
       <button type="submit" class="btn submit">Add Walk</button>
