@@ -16,7 +16,7 @@ def about(request):
   return render(request, 'about.html')
 
 def dog_index(request):
-  dogs = Dog.objects.all()
+  dogs = Dog.objects.filter(user=request.user)
   return render(request, 'dogs/index.html', {'dogs': dogs})
 
 def dog_detail(request, dog_id):
@@ -75,12 +75,13 @@ def assoc_bowl(request, dog_id, bowl_id):
 def signup(request):
   error_message = ''
   if request.method == 'POST':
+    form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('cat-index')
+      return redirect('dog-index')
     else:
-      error_message = 'Invalid sign up - try again'
+      error_message= 'Invalid signup - try again'
   form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
+  context = {'form':form, 'error_message': error_message}
   return render(request, 'signup.html', context)
