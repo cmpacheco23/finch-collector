@@ -39,6 +39,11 @@ class DogUpdate(UpdateView):
   model = Dog
   fields = ['breed', 'description', 'age']
 
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+  
+
 class DogDelete(DeleteView):
   model = Dog
   success_url= '/dogs/'
