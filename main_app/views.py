@@ -50,3 +50,10 @@ class BowlList(ListView):
 class BowlDetail(DetailView):
   model = Bowl
 
+class BowlUpdate(UpdateView):
+  model = Bowl
+  fields = ['size', 'color']
+
+class BowlDelete(DeleteView):
+  model = Bowl
+  success_url = '/bowls/'

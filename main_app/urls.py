@@ -14,5 +14,5 @@ urlpatterns = [
   path('bowls/<int:pk>/', views.BowlDetail.as_view(), name='bowl-detail'),
   path('bowls/', views.BowlList.as_view(), name='bowl-index'),
   path('bowls/<int:pk>/update/', views.BowlUpdate.as_view(), name='bowl-update'),
-  path('bowls/<int:pk>/delete/', views.BowlDelete.as_views(), name='bowl-delete')
+  path('bowls/<int:pk>/delete/', views.BowlDelete.as_view(), name='bowl-delete')
 ]
