@@ -18,6 +18,7 @@
 
 .dog-details {
   width: 98%;
+  margin-left: 150px;
 }
 
 .dog-actions {
@@ -219,4 +220,8 @@
   .walks-bowl-container {
     padding: 0 40px;
   }
+}
+
+.bowl-img{
+  width: 20%;
 }

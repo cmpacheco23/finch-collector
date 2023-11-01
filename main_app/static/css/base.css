@@ -47,9 +47,14 @@ body {
 }
 
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
   width: 100%;
   background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
+  padding: 20px; /* Adjust as needed */
 }
 
 nav {
@@ -93,8 +98,9 @@ nav li {
   padding: 5px 8px;
 }
 
-.header-logo-container {
-  margin: auto;
+.header-logo-container img {
+  display: block;
+  margin: 0 auto;
   padding: 10px 20px 0;
   max-width: 500px;
 }
@@ -103,6 +109,7 @@ nav li {
   display: flex;
   align-items: center;
   margin: 20px;
+  margin-top: 60px;
 }
 
 .btn {
@@ -149,7 +156,7 @@ nav li {
 }
 
 .page-header img {
-  height: 40px;
+  height: 20px;
   margin-left:15px;
 }
 
@@ -196,8 +203,9 @@ nav li {
     flex-wrap: nowrap;
   }
 
-  .header-logo-container {
-    width: 213px;
+  .header-logo-container img{
+    width: 200px;
+    height: 100px
   }
 
   .page-header h1 {
@@ -237,7 +245,7 @@ nav li {
   }
 
   nav,
-  .header-logo-container {
+  .header-logo-container{
     margin: 0;
     background: var(--nav-bg-ff);
     border: var(--borders);
@@ -251,8 +259,8 @@ nav li {
   .header-logo-container {
     /* visual fix to help align logo */
     padding-top: 6px;
-    width: 256px;
-    height: 35px;
+    width: 200px;
+    height: 30px;
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -268,4 +276,15 @@ nav li {
       backdrop-filter: blur(3px);
     }
   }
+}
+
+.header-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure it takes up the full height of the header */
+  text-align: center; /* Center the image horizontally */
+  padding: 10px 20px 0;
+  max-width: 500px;
 }

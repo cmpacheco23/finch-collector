@@ -57,6 +57,8 @@
 
 .page-header > img {
   margin-left: 10px;
+  height: 10%;
+  width: 10%;
 }
 
 .page-header > img:first-of-type {

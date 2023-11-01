@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .card {
@@ -30,9 +31,20 @@
 .card h2 {
   margin: 10px 0;
   font-size: var(--font-xl);
+  text-align: center;
 }
 
 .card p {
   margin: 5px 0;
   font-size: var(--font-reg);
+  text-align: center;
+}
+
+.card-img-container img{
+  width: 80%;
+  max-height: 50%;
+}
+
+.page-header{
+  max-height: 250px;
 }
