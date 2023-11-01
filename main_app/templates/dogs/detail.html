@@ -96,7 +96,38 @@
         <p>{{dog.name}} has never been walked 😔 </p>
       </div>
     {% endif %}
-  </section>
+</section> 
+<section class="bowls">
+  <div class="subsection-title">
+    <h2>Bowls</h2>
+    <img src="{% static 'images/string.svg' %}" alt="A ball of string" />
+    <img src="{% static 'images/mouse.svg' %}" alt="A mouse" />
+    <img src="{% static 'images/fish.svg' %}" alt="A fishy toy" />
+  </div>
+  <h3>{{ dog.name }}'s Bowls</h3>
+  <div class="subsection-content">
+    {% if dog.bowls.count %}
+      {% for dog in dog.bowls.all %}
+        <div class="bowl-container">
+          <div 
+            class="color-block"
+            style="background-color: {{ bowl.color }}"
+          ></div>
+          <a href="{% url 'bowl-detail' bowl.id %}">
+            <p>A {{ bowl.color }} {{ bowl.name }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="no-bowls">{{dog.name}} doesn't have any bowls 😞</p>
+    {% endif %}
+  </div>
+  <h3>Available Bowls</h3>
+  <div class="subsection-content">
+    {% comment %} We'll display available toys here {% endcomment %}
+  </div>
+</section>
+</div>
 </div>
 
 {% endblock %}
