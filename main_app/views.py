@@ -58,3 +58,7 @@ class BowlUpdate(UpdateView):
 class BowlDelete(DeleteView):
   model = Bowl
   success_url = '/bowls/'
+
+def assoc_bowl(request, dog_id, bowl_id):
+  Dog.objects.get(id=dog_id).bowls.add(bowl_id)
+  return redirect('dog-detail', dog_id=dog_id)
