@@ -30,11 +30,11 @@ def add_walk(request, dog_id):
 
 class DogCreate(CreateView):
   model = Dog
-  fields = ['name', 'breed', 'description', 'pawrent', 'age']
+  fields = ['name', 'breed', 'description', 'age']
   
 class DogUpdate(UpdateView):
   model = Dog
-  fields = ['breed', 'description', 'pawrent', 'age']
+  fields = ['breed', 'description', 'age']
 
 class DogDelete(DeleteView):
   model = Dog
