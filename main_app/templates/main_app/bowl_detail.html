@@ -14,8 +14,8 @@
 <div class="card" style="border-color: {{ bowl.color }}">
   <div class="card-bg" style="background-color: {{ bowl.color }}"></div>
   <div class="card-content">
-    <h2>{{ bowl.name }}</h2>
-    <p>A {{ bowl.color }} toy</p>
+    <h2>{{ bowl.size }}</h2>
+    <p>{{ bowl.color }} bowl</p>
   </div>
 </div>
 <a href="{% url 'bowl-update' bowl.id %}" class="btn warn">Edit</a>

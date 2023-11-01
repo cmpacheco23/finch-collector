@@ -25,8 +25,8 @@
     <div class="card-bg" style="background-color: {{ bowl.color }}"></div>
     <a href="{% url 'bowl-detail' bowl.id %}">
       <div class="card-content">
-        <h2>{{ bowl.name }}</h2>
-        <p>A {{ bowl.color }} toy</p>
+        <h2>{{ bowl.size }}</h2>
+        <p>{{ bowl.color }} bowl</p>
       </div>
     </a>
   </div>

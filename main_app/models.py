@@ -15,7 +15,7 @@ class Bowl(models.Model):
   color = models.CharField(max_length=20)
   
   def __str__(self):
-      return self.name
+    return self.size
   
   def get_absolute_url(self):
       return reverse("bowl-detail", kwargs={"pk": self.id})

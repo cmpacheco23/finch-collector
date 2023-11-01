@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -107,14 +108,14 @@
   <h3>{{ dog.name }}'s Bowls</h3>
   <div class="subsection-content">
     {% if dog.bowls.count %}
-      {% for dog in dog.bowls.all %}
+      {% for bowl in dog.bowls.all %}
         <div class="bowl-container">
           <div 
             class="color-block"
             style="background-color: {{ bowl.color }}"
           ></div>
           <a href="{% url 'bowl-detail' bowl.id %}">
-            <p>A {{ bowl.color }} {{ bowl.name }}</p>
+            <p>A {{ bowl.color }} {{ bowl.size }}</p>
           </a>
         </div>
       {% endfor %}
@@ -132,9 +133,9 @@
             style="background-color: {{ bowl.color }}"
           ></div>
           <a href="{% url 'bowl-detail' bowl.id %}">
-            <p>A {{ bowl.color }} {{ bowl.name }}</p>
+            <p>A {{ bowl.color }} {{ bowl.size }}</p>
           </a>
-          <form action="{%url 'assoc-bowl' dog.id bowl.id%}" method="post">
+          <form action="{%url 'assoc-bowl' dog.id bowl.id %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn submit">Give a bowl</button>
           </form>
