@@ -8,6 +8,11 @@ TIMING = (
   ('A', 'Afternoon'),
   ('E', 'Evening')
 )
+
+class Bowl(models.Model):
+  size = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+  
 class Dog(models.Model):
   name = models.CharField(max_length=100)
   breed = models.CharField(max_length=100)
