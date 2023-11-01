@@ -27,11 +27,17 @@
     </div>
     <nav>
       <ul>
-        <li><a href="{%url 'dog-index'%}">All Dogs</a></li>
-        <li><a href="{%url 'dog-create'%}">Add a Dog</a></li>
-        <li><a href="{%url 'bowl-index'%}">All Bowls</a></li>
-        <li><a href="{%url 'bowl-create'%}">Add a Bowl</a></li>
-        <li><a href="{%url 'about'%}">About</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{%url 'dog-index'%}">All Dogs</a></li>
+          <li><a href="{%url 'dog-create'%}">Add a Dog</a></li>
+          <li><a href="{%url 'bowl-index'%}">All Bowls</a></li>
+          <li><a href="{%url 'bowl-create'%}">Add a Bowl</a></li>
+          <li><a href="{%url 'about'%}">About</a></li>
+          <li><a href="{%url 'logout'%}">Log out</a></li>
+        {% else %}
+          <li><a href="{%url 'about'%}">About</a></li>
+          <li><a href="{%url 'home'%}">Login</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
