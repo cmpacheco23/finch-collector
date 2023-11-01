@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+from django.views.generic import ListView, DetailView
 from .models import Dog, Bowl
 from .forms import WalkForm
 # Add the following import
@@ -43,3 +43,10 @@ class DogDelete(DeleteView):
 class BowlCreate(CreateView):
   model = Bowl
   fields = '__all__'
+
+class BowlList(ListView):
+  model = Bowl
+
+class BowlDetail(DetailView):
+  model = Bowl
+
