@@ -14,6 +14,11 @@ from .forms import WalkForm
 class Home(LoginView):
   template_name = 'home.html'
 
+  def get(self, request, *args, **kwargs):
+    if self.request.user.is_authenticated:
+      return redirect('dog-index')
+    return super().get(request, *args, **kwargs)
+  
 def about(request):
   return render(request, 'about.html')
 
