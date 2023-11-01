@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
 from .models import Dog, Bowl
 from .forms import WalkForm
 # Add the following import
 
 # Define the home view
-def home(request):
-  return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
+
 def about(request):
   return render(request, 'about.html')
 
