@@ -46,7 +46,7 @@
 <div class="walks-bowl-container">
   <section class="walks">
     <div class="subsection-title">
-      <h2>Walks</h2>
+      <h2 class="walks">Walks</h2>
       <img 
       src="{% static 'images/cat-cone.svg' %}" 
       alt="An ice cream cone cat"
@@ -124,7 +124,27 @@
   </div>
   <h3>Available Bowls</h3>
   <div class="subsection-content">
-    {% comment %} We'll display available toys here {% endcomment %}
+    {% if bowls.count %}
+      {%for bowl in bowls.all%}
+        <div class="bowl-container">
+          <div 
+            class="color-block"
+            style="background-color: {{ bowl.color }}"
+          ></div>
+          <a href="{% url 'bowl-detail' bowl.id %}">
+            <p>A {{ bowl.color }} {{ bowl.name }}</p>
+          </a>
+          <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn submit">Give a bowl</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="all-bowls">
+        {{dog.name}} already has all the available bowls 🥳
+      </p>
+    {% endif %}
   </div>
 </section>
 </div>
